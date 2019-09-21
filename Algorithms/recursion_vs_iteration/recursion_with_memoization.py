@@ -24,4 +24,4 @@ def fib(x: int) -> int:
 '''
 if __name__=='__main__':
     print(fibonacci(10))
-    print(fib(5))
+    #print(fib(5))
