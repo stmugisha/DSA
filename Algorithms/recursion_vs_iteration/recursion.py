@@ -5,6 +5,11 @@ The fibonacci sequence is one numerical sequence that recursion can be applied t
 the fibonacci is a sequence of numbers such that any given number is the sum of the previous two numbers.
 '''
 def fibonacci(x: int) -> int:
+    '''
+    Computes the fibonacci of a given number x
+    Arguments: x; an integer 
+    Returns: The fibonacci number of x
+    '''
     if x < 2: # the base case
         return x
     return fibonacci(x-2) + fibonacci(x-1) # the recursive case
