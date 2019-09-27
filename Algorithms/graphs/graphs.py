@@ -11,29 +11,70 @@ letters = {'a':['b','c'],
          'f':['e']
          }
 
-def edges(graph: dict) -> list:
-    '''
-    Generates all edges from a given graph.
-    Args: a graph of type dict.
-    Returns: A list of edges.
-    '''
-    edges: list = []
-    for node in graph:
-        for neighbour in graph[node]:
-            edges.append((node, neighbour))
-    return edges
+class Graph():
+    def __init__(self, graph=None):
+        '''initialize an empty dict for the graph object'''
+        if graph == None:
+            graph = {}
+        self.__graph = graph
 
-def isolated_nodes(graph: dict) -> list:
-    '''
-    Returns a list of isolated nodes in a graph
-    '''
-    isolated: list = []
-    for node in graph:
-        if not graph[node]:
-            isolated += node
-    return isolated
+    def vertices(self) -> list:
+        '''
+        returns a list of vertices of a graph
+        '''
+        return list(self.__graph.keys())
+
+    def edges(self) -> list:
+        '''
+        Returns: A list of edges of the graph.
+        '''
+        edges: list = []
+        for node in self.__graph:
+            for neighbour in self.__graph[node]:
+                edges.append((node, neighbour))
+        return edges
+
+    def add_vertex(self, vertex) -> None:
+        '''
+        Add a new vertex/node to a graph
+        '''
+        if vertex not in self.__graph:
+            self.__graph[vertex] = []
+
+    def add_edge(self, edge) -> None:
+        '''
+        Add a new non-deplicate edge to a graph vertex(ices)
+        '''
+        edge = set(edge)
+        vertex1, vertex2 = tuple(edge)
+        if vertex1 in self.__graph:
+            self.__graph[vertex1].append(vertex2)
+        else:
+            self.__graph[vertex1] = [vertex2]
+
+    def get_edges(self) -> list:
+        '''
+        Generate edges from an input graph
+        '''
+        edges = []
+        for vertex in self.__graph:
+            for neighbour in self.__graph[vertex]:
+                if {neighbour,vertex} not in edges:
+                    edges.append({vertex, neighbour})
+        return edges
+
+    def isolated_nodes(self) -> list:
+        '''
+        Returns a list of isolated nodes in a graph
+        '''
+        isolated: list = []
+        for node in self.__graph:
+            if not self.__graph[node]:
+                isolated += node
+        return isolated
 
 
 if __name__=='__main__':
-    print(edges(letters))
-    print(isolated_nodes(letters))
+    pass
+    #print(edges(letters))
+    #print(isolated_nodes(letters))
