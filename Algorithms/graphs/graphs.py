@@ -39,7 +39,7 @@ class Graph(object):
 
     def add_vertex(self, vertex:str) -> None:
         '''
-        Add a new vertex/node to a graph
+        Add a new isolated vertex/node to a graph
         '''
         if vertex not in self.__graph:
             self.__graph[vertex] = []
@@ -89,15 +89,26 @@ class Graph(object):
         is the number of edges connecting it i.e. the number of adjacent
         vertices.
         '''
-        adjacent = self.__graph(vertex)
+        adjacent = self.__graph[vertex]
         degree = len(adjacent) + adjacent.count(vertex)
         return degree
 
-    
-
+    def density(self) -> float:
+        '''
+        Calculates the density of a graph. The density of a graph is the ratio
+        of the number of edges it contains to the total number of edges it could
+        have.i.e it's a measure of the completeness of the graph.
+        Density is defined as, D = 2*(E)/(V*(V-1)) where E and V are the edges
+        and vertices respectively
+        '''
+        v = len(self.__graph.keys())
+        e = len(self.edges())
+        return 2.0 * e / (v * (v-1))
 
 
 if __name__ == '__main__':
     graph = Graph(letters)
     print(graph.edges())
     print(graph.find_path('a', 'f'))
+    print(graph.vertex_degree('a'))
+    print(graph.density())
