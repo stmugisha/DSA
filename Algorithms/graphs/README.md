@@ -1,4 +1,4 @@
-# DataStructures_-_Algorithms
+# DataStructures_&_Algorithms
 ## Algorithms:
 
 > * **An algorithm** is a step by step procedure to solving any given problem.
