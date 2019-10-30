@@ -2,20 +2,20 @@
 # Quicksort implementation in python
 # Find explanation of the algorithm in the readme
 
-def quicksort(values: list) -> list:
+def quicksort(input: list) -> list:
     """ Sorts an input list/array in ascending order
         Args:
-            values: A list of integers to be sorted.
+            input: A list of integers to be sorted.
     """
     
-    if(len(values) <= 1):
-        return values
+    if(len(input) <= 1):
+        return input
     
-    pivot = values[len(values) // 2]  #using list median as the pivot
+    pivot = input[len(input) // 2]  #using list median as the pivot
     
-    left = [i for i in values if i < pivot]
-    mid = [i for i in values if i == pivot]
-    right = [i for i in values if i > pivot]
+    left = [i for i in input if i < pivot]
+    mid = [i for i in input if i == pivot]
+    right = [i for i in input if i > pivot]
     return quicksort(left) + mid + quicksort(right)
 
 if __name__=='__main__':
