@@ -5,3 +5,10 @@ Implementations of various data structures and algorithms
 * Data structures are data management and storage models that allow for easy access and modifications to the data they store.
 
 ## Examples:
+* Lists
+* Tuples
+* Arrays
+* Dictionaries
+* Stacks and Queues
+* Graphs
+* Trees
