@@ -6,7 +6,7 @@ Implementations of various data structures and algorithms
 ## Algorithms:
 * **Algorithms** are step by step procedures to solving any given problem.
 
-**Types of Algorithms: **
+**Types:**
 
 * Recursive algorithms.
 * Dynamic programming.
