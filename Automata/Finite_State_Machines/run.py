@@ -9,6 +9,7 @@ def start_transition(text: str):
     """ Begins state transition starting at the initial/start state."""
     split_text = text.split()
     word, text = split_text if len(split_text) > 1 else (text, "")
+    print(word, text)
     if(word == "Python"):
         new_state = "Python_state"
     else:
@@ -30,7 +31,7 @@ def python_state_transition(text: str):
 def is_state_transition(text: str):
     """ Transition control from the is_state."""
     split_text = text.split()
-    word, text = split_text if len(split_text) > 1 else (text, "")
+    word, text = split_text if len(split_text) > 1 else text, ""
     if(word == "not"):
         new_state = "not_state"
     elif word in positive_adjectives:
@@ -45,7 +46,7 @@ def is_state_transition(text: str):
 def  not_state_transition(text: str):
     """ Transition control from the not_state."""
     split_text = text.split()
-    word, text = split_text if len(split_text) > 1 else (text, "")
+    word, text = split_text if len(split_text) > 1 else text, ""
     if word in positive_adjectives:
         new_state = "negative_state"
     elif word in negative_adjectives:
@@ -72,7 +73,7 @@ if __name__=="__main__":
     fsm.add_state("Null", None, terminal_state=True)
 
     fsm.set_start("start") # Init start_state
-    fsm.run("Python is super fun!")
+    fsm.run("Python is fun")
     fsm.run("Python is super slow!")
     fsm.run("R is ugly.")
 
