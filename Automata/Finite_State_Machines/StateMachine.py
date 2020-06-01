@@ -4,7 +4,7 @@
 
 class StateMachine():
     def __init__(self):
-        self.states = {}  #states
+        self.states = {}  
         self.initial_state = None
         self.terminal_states = []
 
@@ -31,7 +31,7 @@ class StateMachine():
         while True:
             (new_state, data) = state(data)
             if new_state.upper() in self.terminal_states:
-                print(f"Current/Final state: {new_state}")
+                print(f"Final_state: {new_state}")
                 break
             else:
                 state = self.states[new_state.upper()]
