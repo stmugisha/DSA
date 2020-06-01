@@ -3,7 +3,7 @@
 from StateMachine import StateMachine
 
 positive_adjectives = ["great","super", "fun", "entertaining", "easy"]
-negative_adjectives = ["boring", "difficult", "ugly", "bad"]
+negative_adjectives = ["boring", "difficult", "ugly", "bad", "slow"]
 
 def start_transition(text: str):
     """ Begins state transition starting at the initial/start state."""
@@ -54,5 +54,25 @@ def  not_state_transition(text: str):
         new_state = "Null"
 
     return new_state, text
-    
-    
+
+
+def negative_state(text):
+    return "negative_state", ""
+
+
+if __name__=="__main__":
+    fsm = StateMachine()
+    # initialize states
+    fsm.add_state("start", start_transition)
+    fsm.add_state("Python_state", python_state_transition)
+    fsm.add_state("is_state", is_state_transition)
+    fsm.add_state("not_state", not_state_transition)
+    fsm.add_state("negative_state", None, terminal_state=True)
+    fsm.add_state("positive_state", None, terminal_state=True)
+    fsm.add_state("Null", None, terminal_state=True)
+
+    fsm.set_start("start") # Init start_state
+    fsm.run("Python is super fun!")
+    fsm.run("Python is super slow!")
+    fsm.run("R is ugly.")
+
