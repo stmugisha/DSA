@@ -12,14 +12,14 @@ class StateMachine():
 
     def add_state(self, name, state, terminal_state=False):
         """ Add a new state to the set of states/handlers."""
-        name = name.upper()
+        name = name.lower()
         self.states[name] = state
         if terminal_state:
             self.terminal_states.append(name)
 
     def set_start(self, name):
         """ Initial state setter."""
-        self.initial_state = name.upper()
+        self.initial_state = name.lower()
 
     def run(self, data):
         """ Run state machine."""
@@ -32,10 +32,10 @@ class StateMachine():
 
         while True:
             (new_state, data) = state(data)
-            if new_state.upper() in self.terminal_states:
-                print(f"Final_state: {new_state}")
+            if new_state.lower() in self.terminal_states:
+                print(f"sentiment: {new_state}")
                 break
             else:
-                state = self.states[new_state.upper()]
+                state = self.states[new_state.lower()]
 
 
