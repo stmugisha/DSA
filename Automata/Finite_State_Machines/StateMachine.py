@@ -1,8 +1,10 @@
 # A Finite State Machine is an abstract machine that
 # consists of a set of states(initial and terminal state(s)),
 # a set of input and output events and a state transition function
+import exceptions as e
 
 class StateMachine():
+    """Implements a Finite state machine."""
     def __init__(self):
         self.states = {}  
         self.initial_state = None
@@ -24,9 +26,9 @@ class StateMachine():
         try:
             state = self.states[self.initial_state]
         except:
-            raise InitializationError("initial_state must be set before run!")
+            raise e.InitializationError("Initial_state must be set before run!")
         if not self.terminal_states:
-            raise InitializationError("There must be atleast 1 terminal/end state")
+            raise e.InitializationError("There must be atleast 1 terminal/end state")
 
         while True:
             (new_state, data) = state(data)
