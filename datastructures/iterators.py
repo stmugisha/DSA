@@ -1,5 +1,5 @@
 ## Itertools python: product, permutations, combinations, accumulate, groupby, infinite iterators
-## iterators are dtypes that can be used in a loop
+
 from itertools import product, permutations, combinations, accumulate, groupby
 import operator
 
@@ -21,4 +21,4 @@ print(f"COMBINATIONS: {list(comb)}")
 a = [1,2,3,4]
 acc = accumulate(a) #default computes running sums
 acc_mul = accumulate(a, func=operator.mul) # cummulative products
-print(f"Accumulator: {list(acc)}, {list(acc_mul)}")
+print(f"Accumulator: {list(acc)}, {lists(acc_mul)}")
